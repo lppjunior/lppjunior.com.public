@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "preview": "node scripts/build.mjs && node scripts/serve.mjs",
-    "test": "node --test tests/build.test.mjs"
+    "preview": "node scripts/build.mjs --dev && node scripts/serve.mjs",
+    "test": "node --test tests/build.test.mjs tests/gtm.test.mjs"
   },
   "engines": {
     "node": "26.x",

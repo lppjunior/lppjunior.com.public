@@ -24,7 +24,7 @@ test('copies public to the dist root with the same structure and writes the list
   })
   t.after(() => rmSync(dir, { recursive: true, force: true }))
 
-  const files = build({ publicDir, outDir })
+  const files = build({ publicDir, outDir, gtmId: 'GTM-TEST123' })
 
   assert.deepEqual(files.map(file => file.path), ['docs/guide.pdf', 'images/brand/logo.svg', 'robots.txt'])
   assert.equal(readFileSync(join(outDir, 'images/brand/logo.svg'), 'utf8'), '<svg/>')
@@ -41,13 +41,13 @@ test('copies public to the dist root with the same structure and writes the list
 test('refuses a public/index.html that would hide the listing', t => {
   const { dir, publicDir, outDir } = fixture({ 'index.html': '<p>hi</p>' })
   t.after(() => rmSync(dir, { recursive: true, force: true }))
-  assert.throws(() => build({ publicDir, outDir }), /public\/index.html/)
+  assert.throws(() => build({ publicDir, outDir, gtmId: 'GTM-TEST123' }), /public\/index.html/)
 })
 
 test('builds an empty listing when public has no files', t => {
   const { dir, publicDir, outDir } = fixture({ '.gitkeep': '' })
   t.after(() => rmSync(dir, { recursive: true, force: true }))
-  assert.deepEqual(build({ publicDir, outDir }), [])
+  assert.deepEqual(build({ publicDir, outDir, gtmId: 'GTM-TEST123' }), [])
   assert.ok(existsSync(join(outDir, 'index.html')))
   assert.deepEqual(scanFiles(join(dir, 'missing')), [])
 })
