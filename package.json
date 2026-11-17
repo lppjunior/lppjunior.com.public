@@ -1,0 +1,16 @@
+{
+  "name": "lppjunior.com.public",
+  "version": "1.0.0",
+  "description": "Public files of lppjunior.com with a browsable directory listing",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/build.mjs && node scripts/serve.mjs",
+    "test": "node --test tests/build.test.mjs"
+  },
+  "engines": {
+    "node": "26.x",
+    "npm": ">=8.0.0"
+  }
+}
