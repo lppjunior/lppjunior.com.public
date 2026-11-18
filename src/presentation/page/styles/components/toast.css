@@ -1,0 +1,27 @@
+/* <p class="toast">: "Link copied" confirmation; --visible is toggled by link-copier.mjs. */
+@layer components {
+  .toast {
+    position: fixed;
+    z-index: 20;
+    bottom: 52px;
+    left: 50%;
+    margin: 0;
+    padding: 8px 14px;
+    border: 1px solid var(--color-accent-strong-border);
+    border-radius: var(--radius-md);
+    background: var(--color-raised);
+    color: var(--color-text);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 8px);
+    transition: opacity .2s, transform .2s;
+  }
+
+  .toast--visible { opacity: 1; transform: translate(-50%, 0); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .toast { transition: none; }
+  }
+}

@@ -1,0 +1,51 @@
+/* <label class="search">: icon, input and "/" shortcut hint. */
+@layer components {
+  .search {
+    display: flex;
+    flex: 1 1 240px;
+    align-items: center;
+    gap: 8px;
+    max-width: 340px;
+    height: 38px;
+    padding: 0 10px;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-md);
+    background: var(--color-raised);
+  }
+
+  .search:focus-within { border-color: var(--color-accent); }
+
+  .search__icon {
+    width: 16px;
+    flex: 0 0 auto;
+    fill: none;
+    stroke: var(--color-muted);
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+
+  .search__input {
+    width: 100%;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: none;
+    font-size: 14px;
+  }
+
+  .search__input::placeholder { color: var(--color-muted); }
+
+  .search__shortcut {
+    padding: 1px 6px;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-sm);
+    color: var(--color-muted);
+    font-family: var(--font-mono);
+    font-size: 11px;
+  }
+
+  @media (max-width: 640px) {
+    .search { max-width: none; }
+    .search__shortcut { display: none; }
+  }
+}

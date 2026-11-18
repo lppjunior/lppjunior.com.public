@@ -1,0 +1,14 @@
+/* <main class="page">: centers the card and leaves room for the fixed footer. */
+@layer layout {
+  .page {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 48px 16px 76px;
+  }
+
+  @media (max-width: 640px) {
+    .page { padding-top: 16px; }
+  }
+}

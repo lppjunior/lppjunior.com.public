@@ -1,0 +1,40 @@
+@layer settings {
+  :root {
+    --font-sans: 'Space Grotesk', system-ui, sans-serif;
+    --font-mono: 'DM Mono', ui-monospace, monospace;
+
+    --color-bg: #07121e;
+    --color-surface: #0f1b29f5;
+    --color-surface-sunken: #0b1723;
+    --color-raised: #182534;
+    --color-line: #9ab7d221;
+    --color-line-soft: #9ab7d212;
+    --color-grid: #9ab7d20a;
+    --color-glow: #133e5459;
+    --color-text: #e6eef6;
+    --color-muted: #8290a1;
+    --color-separator: #435a6d;
+    --color-footer-text: #a7bece;
+    --color-accent: #00c8f2;
+    --color-accent-soft: #00c8f21a;
+    --color-accent-border: #00c8f240;
+    --color-accent-strong-border: #00c8f259;
+
+    --tone-default: #9ab7d2;
+    --tone-folder: #eab35c;
+    --tone-parent: #8290a1;
+    --tone-image: #63e79a;
+    --tone-code: #00c8f2;
+    --tone-doc: #ff8a7a;
+    --tone-archive: #c49bff;
+    --tone-media: #ffc933;
+    --tone-font: #f78fd0;
+
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 14px;
+    --shadow-card: 0 24px 60px -24px #000c;
+    --gutter: 28px;
+    --gutter-mobile: 18px;
+  }
+}

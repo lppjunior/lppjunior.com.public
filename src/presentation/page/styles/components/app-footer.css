@@ -1,0 +1,31 @@
+/* <footer class="app-footer">: same markup and look as the footer of the other lppjunior.com projects. */
+@layer components {
+  .app-footer {
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: .4em;
+    white-space: nowrap;
+    min-height: 36px;
+    padding: 8px 12px;
+    background: var(--color-bg);
+    color: var(--color-footer-text);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .app-footer a {
+    display: inline-block;
+    padding: 4px 2px;
+    color: inherit;
+    pointer-events: auto;
+  }
+}

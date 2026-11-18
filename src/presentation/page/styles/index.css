@@ -1,0 +1,31 @@
+/*
+ * CSS architecture: layers from generic to specific, one file per DOM component.
+ *
+ *   settings    design tokens (custom properties only, no selectors that output styles)
+ *   base        element defaults (no classes)
+ *   layout      page structure: .page, .card
+ *   components  one BEM block per DOM component (block__element--modifier)
+ *   utilities   single-purpose helpers that must always win
+ *
+ * The layer order below decides the cascade, so specificity never has to be fought.
+ * Breakpoint: 640px (custom properties cannot be used in media queries).
+ */
+@layer settings, base, layout, components, utilities;
+
+@import './settings/tokens.css';
+@import './base/base.css';
+@import './layout/page.css';
+@import './layout/card.css';
+@import './components/site-header.css';
+@import './components/toolbar.css';
+@import './components/breadcrumb.css';
+@import './components/search.css';
+@import './components/listing.css';
+@import './components/entry.css';
+@import './components/file-icon.css';
+@import './components/copy-button.css';
+@import './components/message.css';
+@import './components/fallback-list.css';
+@import './components/toast.css';
+@import './components/app-footer.css';
+@import './utilities/visually-hidden.css';

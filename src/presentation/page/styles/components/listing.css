@@ -1,0 +1,20 @@
+/* <div class="listing">: the table of entries; owns the separators between them. */
+@layer components {
+  .listing { padding: 6px 12px 12px; }
+
+  .listing__rows > .entry { border-top: 1px solid var(--color-line-soft); }
+  .listing__rows > .entry:first-child { border-top-color: transparent; }
+
+  .listing__rows > .entry:hover,
+  .listing__rows > .entry:focus-within {
+    background: var(--color-raised);
+    border-top-color: transparent;
+  }
+
+  .listing__rows > .entry:hover + .entry,
+  .listing__rows > .entry:focus-within + .entry { border-top-color: transparent; }
+
+  @media (max-width: 640px) {
+    .listing { padding: 4px 6px 8px; }
+  }
+}

@@ -1,0 +1,11 @@
+/* <p class="message">: empty folder, no search match or unknown folder. */
+@layer components {
+  .message {
+    margin: 0;
+    padding: 40px var(--gutter) 52px;
+    color: var(--color-muted);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    text-align: center;
+  }
+}

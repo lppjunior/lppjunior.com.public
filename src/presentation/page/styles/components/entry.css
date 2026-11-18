@@ -1,0 +1,68 @@
+/* <div class="entry">: one row of the listing (parent, folder or file); --head is the column header row. */
+@layer components {
+  .entry {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 90px 90px 40px;
+    align-items: center;
+    gap: 12px;
+    min-height: 48px;
+    padding: 0 16px;
+    border-radius: var(--radius-md);
+    font-family: var(--font-mono);
+    font-size: 13px;
+  }
+
+  .entry--head {
+    min-height: 38px;
+    color: var(--color-muted);
+    font-size: 10px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+  }
+
+  .entry__name { min-width: 0; }
+
+  .entry__link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    text-decoration: none;
+  }
+
+  .entry__label {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .entry__link:hover .entry__label { color: var(--color-accent); }
+
+  .entry__detail {
+    display: block;
+    overflow: hidden;
+    color: var(--color-muted);
+    font-size: 11px;
+    text-overflow: ellipsis;
+  }
+
+  .entry__type,
+  .entry__size { color: var(--color-muted); }
+
+  .entry__size { text-align: right; }
+
+  /* Actions appear on hover or keyboard focus; always visible on touch screens. */
+  .entry__actions { opacity: 0; }
+  .entry:hover .entry__actions,
+  .entry__actions:focus-within { opacity: 1; }
+
+  @media (hover: none) {
+    .entry__actions { opacity: 1; }
+  }
+
+  @media (max-width: 640px) {
+    .entry { grid-template-columns: minmax(0, 1fr) 72px 32px; gap: 8px; padding: 0 10px; }
+    .entry__type { display: none; }
+  }
+}

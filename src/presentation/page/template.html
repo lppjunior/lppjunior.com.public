@@ -12,51 +12,51 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap"></noscript>
-    <style>/*__STYLES__*/</style>
+    <style>{{ styles }}</style>
   </head>
   <body>
-    <main class="app">
+    <main class="page">
       <section class="card" aria-labelledby="page-title">
-        <header class="hero">
-          <div class="mark" aria-hidden="true">
-            <svg viewBox="0 0 32 32"><path d="M3 8a3 3 0 0 1 3-3h6l3 3h11a3 3 0 0 1 3 3v13a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3z"/></svg>
+        <header class="site-header">
+          <div class="site-header__mark" aria-hidden="true">
+            <svg class="site-header__mark-icon" viewBox="0 0 32 32"><path d="M3 8a3 3 0 0 1 3-3h6l3 3h11a3 3 0 0 1 3 3v13a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3z"/></svg>
           </div>
           <div>
-            <p class="eyebrow">lppjunior.com /</p>
-            <h1 id="page-title">public</h1>
+            <p class="site-header__eyebrow">lppjunior.com /</p>
+            <h1 class="site-header__title" id="page-title">public</h1>
           </div>
-          <p class="stats" id="stats" aria-live="polite"></p>
+          <p class="site-header__summary" id="summary" aria-live="polite"></p>
         </header>
 
         <div class="toolbar">
           <nav class="breadcrumb" id="breadcrumb" aria-label="Current folder"></nav>
           <label class="search">
-            <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <svg class="search__icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
             <span class="visually-hidden">Search files</span>
-            <input id="search" type="search" placeholder="Search files" autocomplete="off" spellcheck="false">
-            <kbd aria-hidden="true">/</kbd>
+            <input class="search__input" id="search" type="search" placeholder="Search files" autocomplete="off" spellcheck="false">
+            <kbd class="search__shortcut" aria-hidden="true">/</kbd>
           </label>
         </div>
 
-        <div class="listing" role="table" aria-label="Files" aria-describedby="stats">
-          <div class="row head" role="row">
+        <div class="listing" role="table" aria-label="Files" aria-describedby="summary">
+          <div class="entry entry--head" role="row">
             <span role="columnheader">Name</span>
-            <span role="columnheader" class="col-type">Type</span>
-            <span role="columnheader" class="col-size">Size</span>
+            <span class="entry__type" role="columnheader">Type</span>
+            <span class="entry__size" role="columnheader">Size</span>
             <span role="columnheader"><span class="visually-hidden">Actions</span></span>
           </div>
-          <div id="rows" role="rowgroup"></div>
+          <div class="listing__rows" id="rows" role="rowgroup"></div>
         </div>
-        <p class="empty" id="empty" hidden></p>
+        <p class="message" id="message" hidden></p>
 
         <noscript>
-          <ul class="plain-list"><!--__NOSCRIPT__--></ul>
+          <ul class="fallback-list">{{ fallbackList }}</ul>
         </noscript>
       </section>
       <p class="toast" id="toast" role="status" aria-live="polite"></p>
     </main>
     <footer class="app-footer"><a href="https://lppjunior.com/">lppjunior.com</a> · public</footer>
-    <script type="application/json" id="files-data">__FILES__</script>
-    <script>/*__SCRIPT__*/</script>
+    <script type="application/json" id="files-data">{{ filesJson }}</script>
+    <script>{{ script }}</script>
   </body>
 </html>

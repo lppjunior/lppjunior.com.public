@@ -1,0 +1,17 @@
+/* <div class="toolbar">: holds the breadcrumb and the search field. */
+@layer components {
+  .toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    padding: 14px var(--gutter);
+    border-top: 1px solid var(--color-line);
+    border-bottom: 1px solid var(--color-line);
+    background: var(--color-surface-sunken);
+  }
+
+  @media (max-width: 640px) {
+    .toolbar { padding: 12px var(--gutter-mobile); }
+  }
+}

@@ -5,12 +5,20 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node scripts/build.mjs",
-    "preview": "node scripts/build.mjs --dev && node scripts/serve.mjs",
-    "test": "node --test tests/build.test.mjs tests/gtm.test.mjs"
+    "dev": "node bin/dev.mjs",
+    "build": "node bin/build.mjs",
+    "test": "node --test",
+    "lint": "standard"
+  },
+  "standard": {
+    "env": ["browser"]
   },
   "engines": {
     "node": "26.x",
-    "npm": ">=8.0.0"
+    "npm": ">=11.0.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "standard": "^17.1.2"
   }
 }

@@ -1,0 +1,26 @@
+/* <nav class="breadcrumb">: rendered by view.mjs (renderBreadcrumb). */
+@layer components {
+  .breadcrumb {
+    display: flex;
+    flex: 1 1 320px;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2px;
+    min-width: 0;
+    font-family: var(--font-mono);
+    font-size: 13px;
+  }
+
+  .breadcrumb__link,
+  .breadcrumb__current {
+    padding: 4px 6px;
+    border-radius: 5px;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+
+  .breadcrumb__link { color: var(--color-muted); }
+  .breadcrumb__link:hover { color: var(--color-text); background: var(--color-raised); }
+  .breadcrumb__current { color: var(--color-accent); }
+  .breadcrumb__separator { color: var(--color-separator); }
+}

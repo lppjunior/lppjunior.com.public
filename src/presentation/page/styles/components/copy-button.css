@@ -1,0 +1,24 @@
+/* <button class="copy-button">: copies the file URL (its visibility is decided by .entry__actions). */
+@layer components {
+  .copy-button {
+    display: grid;
+    width: 32px;
+    height: 32px;
+    place-items: center;
+    border: 0;
+    border-radius: 6px;
+    background: none;
+    color: var(--color-muted);
+    cursor: pointer;
+  }
+
+  .copy-button:hover { color: var(--color-accent); background: var(--color-accent-soft); }
+
+  .copy-button__svg {
+    width: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linejoin: round;
+  }
+}
