@@ -1,6 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { assertPublishable, extensionOf, isIgnored, isInside, nameOf, parentOf, toUrlPath } from '../../src/domain/public-path.mjs'
+import { compareNames, extensionOf, isIgnored, isInside, nameOf, parentOf, toUrlPath, visibleFiles } from '../../src/domain/public-path.mjs'
 
 test('splits paths into name, parent folder and extension', () => {
   assert.equal(nameOf('docs/2026/Guide.PDF'), 'Guide.PDF')
@@ -27,7 +27,11 @@ test('builds the public URL with each segment encoded', () => {
   assert.equal(toUrlPath('TCC/notes with spaces#1.pdf'), '/TCC/notes%20with%20spaces%231.pdf')
 })
 
-test('rejects files that would overwrite the generated listing', () => {
-  assert.throws(() => assertPublishable([{ path: 'index.html' }]), /public\/index.html/)
-  assert.doesNotThrow(() => assertPublishable([{ path: 'blog/index.html' }]))
+test('lists visible files sorted by path', () => {
+  const files = [{ path: 'robots.txt' }, { path: 'docs/.DS_Store' }, { path: 'docs/a.pdf' }]
+  assert.deepEqual(visibleFiles(files).map(file => file.path), ['docs/a.pdf', 'robots.txt'])
+})
+
+test('orders names naturally, ignoring case', () => {
+  assert.deepEqual(['guide 10', 'Guide 2', 'alpha'].sort(compareNames), ['alpha', 'Guide 2', 'guide 10'])
 })

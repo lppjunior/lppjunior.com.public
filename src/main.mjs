@@ -1,13 +1,16 @@
-// Browser entry point: reads the embedded file list and keeps the listing in sync with the URL and search.
-import { createFolderIndex } from './folder-index.mjs'
-import { createLinkCopier } from './link-copier.mjs'
-import { buildListing } from './listing.mjs'
-import { folderFromHash, pageTitleOf } from './route.mjs'
-import { renderListing } from './view.mjs'
+// Entry point: wires the file list, the listing logic and the UI, and keeps them in sync with the URL and search.
+import publicFiles from 'virtual:public-files'
+import { createFolderIndex } from './application/folder-index.mjs'
+import { buildListing } from './application/listing.mjs'
+import { visibleFiles } from './domain/public-path.mjs'
+import { createLinkCopier } from './ui/link-copier.mjs'
+import { folderFromHash, pageTitleOf } from './ui/route.mjs'
+import { renderListing } from './ui/view.mjs'
+import './ui/styles/index.css'
 
 const byId = id => document.getElementById(id)
 
-const files = JSON.parse(byId('files-data').textContent)
+const files = visibleFiles(publicFiles)
 const index = createFolderIndex(files)
 const elements = {
   breadcrumb: byId('breadcrumb'),

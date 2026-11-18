@@ -1,7 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { createFolderIndex } from '../../src/client/folder-index.mjs'
-import { buildListing, LISTING_STATUS } from '../../src/client/listing.mjs'
+import { createFolderIndex } from '../../src/application/folder-index.mjs'
+import { buildListing, LISTING_STATUS } from '../../src/application/listing.mjs'
 
 const files = [
   { path: 'docs/2026/report.pdf', size: 300 },

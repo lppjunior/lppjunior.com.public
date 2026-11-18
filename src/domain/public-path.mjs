@@ -2,11 +2,8 @@
 
 const SEPARATOR = '/'
 
-/** Repository housekeeping files: never published nor listed. */
+/** Repository housekeeping files: never listed. */
 export const IGNORED_NAMES = Object.freeze(['.gitkeep', '.DS_Store', 'Thumbs.db', 'desktop.ini'])
-
-/** Output paths owned by the generated site. */
-export const RESERVED_PATHS = Object.freeze(['index.html'])
 
 export const ROOT_FOLDER = ''
 
@@ -38,13 +35,14 @@ export function toUrlPath (path) {
   return SEPARATOR + path.split(SEPARATOR).map(encodeURIComponent).join(SEPARATOR)
 }
 
-export function assertPublishable (files) {
-  const conflict = files.find(file => RESERVED_PATHS.includes(file.path))
-  if (conflict) {
-    throw new Error(`public/${conflict.path} would overwrite the generated listing. Rename or move it into a folder.`)
-  }
+/** Human order: case-insensitive, with numbers compared by value ("2" before "10"). */
+export function compareNames (a, b) {
+  return a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' })
 }
 
-export function byPath (a, b) {
-  return a.path.localeCompare(b.path, 'en')
+/** Files shown in the listing: housekeeping files removed, sorted by path. */
+export function visibleFiles (files) {
+  return files
+    .filter(file => !isIgnored(file.path))
+    .sort((a, b) => a.path.localeCompare(b.path, 'en'))
 }

@@ -16,8 +16,3 @@ export function formatSize (bytes) {
 export function plural (count, word) {
   return `${count} ${word}${count === 1 ? '' : 's'}`
 }
-
-/** Human order: case-insensitive, with numbers compared by value ("2" before "10"). */
-export function compareNames (a, b) {
-  return a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' })
-}
