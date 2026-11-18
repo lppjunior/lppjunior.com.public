@@ -5,20 +5,23 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "node bin/dev.mjs",
-    "build": "node bin/build.mjs",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "test": "node --test",
     "lint": "standard"
   },
   "standard": {
-    "env": ["browser"]
+    "env": [
+      "browser"
+    ]
   },
   "engines": {
     "node": "26.x",
     "npm": ">=11.0.0"
   },
   "devDependencies": {
-    "esbuild": "^0.28.2",
-    "standard": "^17.1.2"
+    "standard": "^17.1.2",
+    "vite": "^8.3.8"
   }
 }

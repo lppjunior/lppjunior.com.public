@@ -12,7 +12,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap"></noscript>
-    <style>{{ styles }}</style>
   </head>
   <body>
     <main class="page">
@@ -50,13 +49,12 @@
         <p class="message" id="message" hidden></p>
 
         <noscript>
-          <ul class="fallback-list">{{ fallbackList }}</ul>
+          <p class="message">Enable JavaScript to browse the files.</p>
         </noscript>
       </section>
       <p class="toast" id="toast" role="status" aria-live="polite"></p>
     </main>
     <footer class="app-footer"><a href="https://lppjunior.com/">lppjunior.com</a> · public</footer>
-    <script type="application/json" id="files-data">{{ filesJson }}</script>
-    <script>{{ script }}</script>
+    <script type="module" src="/src/main.mjs"></script>
   </body>
 </html>

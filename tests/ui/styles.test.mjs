@@ -5,7 +5,7 @@ import assert from 'node:assert/strict'
 import { readdirSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 
-const stylesDir = fileURLToPath(new URL('../../src/presentation/page/styles/', import.meta.url))
+const stylesDir = fileURLToPath(new URL('../../src/ui/styles/', import.meta.url))
 const read = path => readFileSync(fileURLToPath(new URL(path, import.meta.url)), 'utf8')
 
 const index = readFileSync(`${stylesDir}index.css`, 'utf8')
@@ -29,9 +29,9 @@ test('wraps each stylesheet in the layer of its folder', () => {
   }
 })
 
-test('every class used by the template and the client has a CSS rule', () => {
-  const template = read('../../src/presentation/page/template.html')
-  const client = ['view.mjs', 'link-copier.mjs'].map(file => read(`../../src/client/${file}`)).join('\n')
+test('every class used by index.html and the UI has a CSS rule', () => {
+  const template = read('../../index.html')
+  const client = ['view.mjs', 'link-copier.mjs'].map(file => read(`../../src/ui/${file}`)).join('\n')
 
   const used = new Set([
     ...[...template.matchAll(/class="([^"]+)"/g)].flatMap(match => match[1].split(/\s+/)),

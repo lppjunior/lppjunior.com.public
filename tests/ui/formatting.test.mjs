@@ -1,8 +1,8 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { badgeOf, kindOf, typeLabelOf } from '../../src/client/file-type.mjs'
-import { formatSize, plural } from '../../src/client/format.mjs'
-import { folderFromHash, hashOf, pageTitleOf } from '../../src/client/route.mjs'
+import { badgeOf, kindOf, typeLabelOf } from '../../src/domain/file-type.mjs'
+import { formatSize, plural } from '../../src/ui/format.mjs'
+import { folderFromHash, hashOf, pageTitleOf } from '../../src/ui/route.mjs'
 
 test('formats sizes with readable units', () => {
   assert.equal(formatSize(512), '512 B')

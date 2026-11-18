@@ -1,5 +1,4 @@
-import { extensionOf, isInside, nameOf, parentOf, ROOT_FOLDER } from '../domain/public-path.mjs'
-import { compareNames } from './format.mjs'
+import { compareNames, extensionOf, isInside, nameOf, parentOf, ROOT_FOLDER } from '../domain/public-path.mjs'
 
 export const LISTING_STATUS = Object.freeze({
   OK: 'ok',

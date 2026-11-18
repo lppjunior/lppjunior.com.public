@@ -1,8 +1,8 @@
 import { toUrlPath } from '../domain/public-path.mjs'
 import { h, icon } from './dom.mjs'
-import { badgeOf, kindOf, typeLabelOf } from './file-type.mjs'
+import { badgeOf, kindOf, typeLabelOf } from '../domain/file-type.mjs'
 import { formatSize, plural } from './format.mjs'
-import { LISTING_STATUS } from './listing.mjs'
+import { LISTING_STATUS } from '../application/listing.mjs'
 import { hashOf } from './route.mjs'
 
 // Class names follow the BEM blocks in presentation/page/styles/components/.
